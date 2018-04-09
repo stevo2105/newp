@@ -1,0 +1,447 @@
+<html>
+
+<script>window.$ = window.jQuery = require('./node_modules/jquery/dist/jquery.min.js');</script>
+<!-- <script>window.$ = window.jQuery = require('jquery');</script> -->
+<script>var XLSX = require('./node_modules/xlsx');</script>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+
+
+<!-- Latest compiled profilepass -->
+<!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
+<script>require('./node_modules/bootstrap')</script>
+
+
+
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+<body>
+<style>
+.foot {
+  position:fixed;
+  bottom:0;
+  right:0;
+  margin-right:30px;
+  margin-bottom:15px;
+}
+}
+img {
+  font-family:websans1;
+}
+.friend {
+  font-family:websans1;
+  margin-left:322px;
+  margin-top:35px;
+}
+#clockdiv{
+  font-family:websans1;
+  color:white;
+  display: inline-block;
+  font-weight: 100;
+  text-align: center;
+  font-size: 30px;
+}
+#clockdiv > div {
+  font-family:websans1;
+  padding: 10px;
+  border-radius: 3px;
+  background:transparent;
+  display: inline-block;
+}
+#clockdiv div > span {
+  font-family:websans1;
+  padding: 15px;
+  border-radius: 3px;
+  background:transparent;
+  display: inline-block;
+}
+.smalltext4 {
+  font-family:websans1;
+  padding-top: 5px;
+  font-size: 25px;
+  margin-right:-110px;
+}
+.smalltext1 {
+  font-family:websans1;
+  padding-top: 5px;
+  font-size: 25px;
+  margin-left:-5px;
+}
+.smalltext2 {
+  font-family:websans1;
+  padding-top: 5px;
+  font-size: 25px;
+  margin-right:-55px;
+}
+.smalltext3 {
+  font-family:websans1;
+  padding-top: 5px;
+  font-size: 25px;
+  margin-right:-85px;
+}
+#countDownBlock {
+  font-family:websans1;
+  text-align: center;
+  margin-top: 50px;
+}
+@font-face {
+    font-family: websans;
+    src: url(source-sans-pro.bold.ttf);
+}
+@font-face {
+    font-family: websans1;
+    src: url(source-sans-pro.regular.ttf);
+}
+button#join {
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    background-color: transparent;
+    border-style:solid;
+    border-width: 2px;
+    border-color: white;
+    height:40px;
+    width:125px;
+    font-family:websans;
+    margin-left:275px;
+}
+button#share {
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    background-color: transparent;
+    border-style:solid;
+    border-width: 2px;
+    border-color: white;
+    height:40px;
+    width:125px;
+    font-family:websans1;
+    margin-left:408px;
+    margin-top:10px;
+    margin-bottom:100px;
+}
+button#power {
+    background-color: transparent;
+    color:red;
+    font-family:websans;
+    background-color: transparent;
+    border-style:none;
+    position:fixed;
+    top:0;
+    right:0;
+    margin-right:30px;
+    margin-top:15px;
+}
+.back {
+  background-color: transparent;
+  color:white;
+  font-family:websans;
+  border-style:none;
+  font-size:20px;
+  position:fixed;
+  top:0;
+  left:0;
+  margin-left:15px;
+  margin-top:15px;
+}
+.invite {
+  border:1px;
+  font-family:websans;
+}
+.cell {
+  text-align:center;
+  font-size:10px;
+  font-family:websans;
+  margin-left:-14px;
+}
+table {
+    border-spacing:30px;
+    border-collapse: separate;
+    font-family:websans;
+}
+u {
+  color:white;
+  font-family:websans1;
+}
+.table1 {
+  padding-top:175px;
+  margin-left:-20px;
+}
+.sub2 {
+  padding-left:80px;
+  padding-top:65px;
+  font-family:websans;
+}
+.import1 {
+  margin-left:115px;
+  background-color:white;
+  color:black;
+  border-color:white;
+  font-family:websans;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  border-style:solid;
+}
+.title1 {
+  padding-left:22px;
+  font-family:websans;
+}
+.title2 {
+  margin-left:-25px;
+  font-family:websans;
+}
+.sub1 {
+  padding-left:95px;
+  font-family:websans;
+}
+.start1 {
+  background-color: white;
+  color:black;
+  border-color:white;
+  margin-left:-40px;
+  margin-bottom:75px;
+  font-family:websans;
+  width:200px;
+  height:50px;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  border-style:solid;
+}
+.start2 {
+  background-color: transparent;
+  color:white;
+  border-color:white;
+  font-family:websans;
+  width:150px;
+  height:35px;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  border-style:solid;
+  margin-left:400px;
+  margin-top:40px;
+}
+.pic1 {
+  position:absolute;
+  top:350px;
+  left:100px;
+  font-family:websans;
+}
+.flex-container {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-flow: row wrap;
+    flex-flow: row wrap;
+    text-align: left;
+    font-family:websans;
+}
+.flex-container > * {
+    padding: 0px;
+    -webkit-flex: 1 100%;
+    flex: 1 100%;
+    font-family:websans;
+}
+.article {
+    text-align: left;
+    font-family:websans;
+}
+.textcolor {
+  background-color:white;
+  color:black;
+  border-color:white;
+  font-family:websans;
+}
+form input[type=text] {
+  width: 300px;
+  margin-bottom: 7px;
+  font-size: 20px;
+  border: 1px solid white;
+  border-width: 2px;
+  border-color: white;
+  padding: 5px 7px;
+  background-color: #FB9972;
+  color:white;
+  border-radius: 1px;
+  font-family:websans;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  }
+  form input[type=text1] {
+    width: 300px;
+    margin-bottom: 7px;
+    font-size: 20px;
+    border: 1px solid white;
+    border-width: 2px;
+    border-color: white;
+    padding: 5px 7px;
+    background-color:transparent;
+    color:#fbc4c4;
+    border-radius: 1px;
+    font-family:websans1;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    }
+    form input[type=text2] {
+      width: 250px;
+      margin-bottom: 7px;
+      margin-top: 70px;
+      font-size: 20px;
+      border-top:none;
+      border-left:none;
+      border-right:none;
+      border-bottom: solid white 1px;
+      padding: 5px 7px;
+      background-color:transparent;
+      color:white;
+      border-radius: 1px;
+      font-family:websans1;
+      padding-top:0px;
+  }
+            }
+input[placeholder], [placeholder], *[placeholder] {
+    color: white !important;
+    font-size: 20px;
+    font-family:websans;
+}
+::-webkit-input-placeholder {
+ font-size: 8px;
+ color: #fbc4c4;
+ text-align: center;
+ font-family:websans1;
+}
+:-moz-placeholder { /* older Firefox*/
+ font-size: 8px;
+ color: #fbc4c4;
+ text-align: center;
+ font-family:websans1;
+}
+::-moz-placeholder { /* Firefox 19+ */
+ font-size: 8px;
+ color: #fbc4c4;
+ text-align: center;
+ font-family:websans1;
+}
+:-ms-input-placeholder {
+ font-size: 8px;
+ color: white;
+ text-align: #fbc4c4;
+ font-family:websans1;
+}
+body{background: linear-gradient(to top, #F3796C, #FFAD75);color:white;}
+.nav {background: linear-gradient(to top, #F3796C, #FFAD75);color:white}
+.nav ul {
+    list-style-type: none;
+    padding: 0;
+    font-family:websans;
+}
+.nav ul a {
+    text-decoration: none;
+    font-family:websans;
+}
+.resize {
+    width: auto;
+    height: auto;
+    padding-left:150px;
+    padding-top:25px;
+    font-family:websans;
+}
+@media all and (min-width: 768px) {
+    .nav {text-align:left;-webkit-flex: 1 auto;flex:1 auto;-webkit-order:1;order:1;}
+    .article {-webkit-flex:5 0px;flex:5 0px;-webkit-order:2;order:2;}
+    footer {-webkit-order:3;order:3;}
+}
+#wrap {
+   width:900px;
+   margin:0 auto;
+   font-family:websans;
+   align:center;
+   top:0
+   left:0
+   right:0
+   bottom:0
+}
+#left_col {
+   float:left;
+   width:300px;
+   margin-right:150px;
+   padding-top:25px;
+   font-family:websans;
+}
+#right_col {
+   float:right;
+   width:300px;
+   margin-left:150px;
+   padding-top:25px;
+   font-family:websans;
+}
+.logo{
+  margin-left:350px;
+  margin-top:125px;
+  margin-bottom:-50px;
+}
+</style>
+</body>
+<body>
+<div id="wrap">
+  <form action="css.html">
+    <button class="button" id="power"><img src="images/power.png"></button>
+  </form>
+  <div class="flex-container">
+
+  </div>
+    <img class="logo" src="images/logo.png" alt="error">
+    <form class="friend" id="login-box" action="slide3.html">
+      <img style="padding-right:15px" src="images/key.png"><input type="text2" id="email" name="fname" style="text-align:center; margin-left:-10px" value="Enter Key Here">
+    </form>
+
+    <form action="" id="login-form">
+      <input class="start2" type="submit" value="Login">
+    </form>
+    <div class="foot">
+      <img style="display:inline; padding-left:30px" src="images/pblock.png">
+      <a style="display:inline; padding-left:5px" href="https://proxypass.io"><u style="display:inline">Buy Proxies</u></a>
+      <img style="display:inline; padding-left:30px" src="images/questionmark.png">
+      <p style="display:inline; padding-left:5px; font-family:websans1">Need Help?</p><a style="display:inline; padding-left:10px" href=""><u>Contact Support</u></a>
+      <a href="https://twitter.com/profilepass"><img style="display:inline; padding-left:50px" src="images/twitter.png">
+    </div>
+</div>
+
+<script>
+
+const electron = require('electron');
+const ipcRenderer = electron.ipcRenderer;
+
+const form1 = document.getElementById('login-box');
+
+form1.addEventListener("submit", submitForm1);
+
+function submitForm1(e){
+  e.preventDefault();
+}
+const form = document.getElementById('login-form');
+
+form.addEventListener('submit', submitForm);
+
+
+function submitForm(e) {
+
+  e.preventDefault();
+  const email = document.getElementById('email').value;
+  const password = document.getElementById('email').value;
+  ipcRenderer.send('activation:add', email);
+  // ipcRenderer.send('password:add', password);
+
+}
+
+ipcRenderer.on("activation:add", function(e, message) {
+
+  alert(message);
+});
+</script>
+</body>
+</html>

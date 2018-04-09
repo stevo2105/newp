@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+    <configSections>
+        <sectionGroup name="userSettings" type="System.Configuration.UserSettingsGroup, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" >
+            <section name="BNB_All_in_One.Properties.Settings" type="System.Configuration.ClientSettingsSection, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" allowExeDefinition="MachineToLocalUser" requirePermission="false" />
+        </sectionGroup>
+    </configSections>
+    <userSettings>
+        <BNB_All_in_One.Properties.Settings>
+            <setting name="TwitterPassword" serializeAs="String">
+                <value />
+            </setting>
+            <setting name="SendNotifications" serializeAs="String">
+                <value>False</value>
+            </setting>
+            <setting name="TwitterUsername" serializeAs="String">
+                <value />
+            </setting>
+            <setting name="SingleCheckout" serializeAs="String">
+                <value>False</value>
+            </setting>
+            <setting name="SendPassword" serializeAs="String">
+                <value>False</value>
+            </setting>
+            <setting name="CheckboxOnlyChk" serializeAs="String">
+                <value>False</value>
+            </setting>
+            <setting name="Key2Captcha" serializeAs="String">
+                <value />
+            </setting>
+            <setting name="KeyAntiCaptcha" serializeAs="String">
+                <value />
+            </setting>
+            <setting name="Proxies" serializeAs="String">
+                <value>[]</value>
+            </setting>
+            <setting name="CreditCardProfiles" serializeAs="String">
+                <value>[{"Name":"Spencerrrr","BillingFirstName":"Spencer","BillingLastName":"Spencer","BillingAddress1":"1234 Spencer","BillingAddress2":"","BillingZipCode":"21413","BillingPhone":"1231231234","BillingCity":"Spencer","BillingState":"NC","BillingProvince":"","BillingCountry":"US","BillingEURegion":"","BillingDSMRegion":"","ShippingFirstName":"Spencer","ShippingLastName":"Spencer","ShippingAddress1":"1234 Spencer","ShippingAddress2":"","ShippingZipCode":"21413","ShippingPhone":"1231231234","ShippingCity":"Spencer","ShippingState":"NC","ShippingProvince":"","ShippingCountry":"US","ShippingEURegion":"","ShippingDSMRegion":"","CreditCardType":"Visa","CreditCardNumber":"4111111111111111","CreditCardExpiryMonth":"11","CreditCardExpiryYear":"26","CreditCardCvv":"123","MaxCheckouts":0}]</value>
+            </setting>
+            <setting name="MonitorUser" serializeAs="String">
+                <value />
+            </setting>
+            <setting name="NdcAccounts" serializeAs="String">
+                <value>[]</value>
+            </setting>
+        </BNB_All_in_One.Properties.Settings>
+    </userSettings>
+</configuration>

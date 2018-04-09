@@ -1,0 +1,54 @@
+{
+  "name": "profilepass",
+  "version": "1.0.0",
+  "description": "Import EXCEL data into multiple sneaker bots",
+  "main": "main.js",
+  "repository": "https://github.com/stevo2105/btctrade",
+  "scripts": {
+    "start": "electron .",
+    "package-win": "electron-packager . ProfilePass --overwrite --asar=true --platform=win32 --arch=ia32 --icon=appicon.ico --no-prune --out=release-builds --version-string.CompanyName=CE --version-string.FileDescription=CE --version-string.ProductName=\"ProfilePass\""
+  },
+  "build": {
+    "appId": "com.ProfilePass",
+    "category": "com.profilepass",
+    "dmg": {
+      "contents": [
+        {
+          "x": 110,
+          "y": 150
+        },
+        {
+          "x": 240,
+          "y": 150,
+          "type": "link",
+          "path": "/Applications"
+        }
+      ]
+    },
+    "linux": {
+      "target": [
+        "AppImage",
+        "deb"
+      ]
+    },
+    "win": {
+      "target": "squirrel"
+    }
+  },
+  "author": "Profile Pass",
+  "license": "MIT",
+  "dependencies": {
+    "bootstrap": "^4.0.0",
+    "electron": "^1.8.4",
+    "electron-simple-updater": "^1.2.3",
+    "jquery": "^3.3.1",
+    "popper": "^1.0.1",
+    "popper.js": "^1.14.3",
+    "store": "^2.0.12",
+    "xlsx": "^0.12.8",
+    "xml2js": "^0.4.19"
+  },
+  "devDependencies": {
+    "electron-winstaller": "^2.6.4"
+  }
+}

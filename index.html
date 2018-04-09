@@ -1,0 +1,1107 @@
+<html>
+<!-- Latest compiled and minified CSS -->
+<script>window.$ = window.jQuery = require('./node_modules/jquery/dist/jquery.min.js');</script>
+<!-- <script>window.$ = window.jQuery = require('jquery');</script> -->
+<script>var XLSX = require('./node_modules/xlsx');</script>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+
+
+<!-- Latest compiled profilepass -->
+<!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
+<script>require('./node_modules/bootstrap')</script>
+
+
+
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.8.0/jszip.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.8.0/xlsx.js"></script>
+
+<body>
+<style>
+.foot {
+  position:fixed;
+  bottom:0;
+  right:0;
+  margin-right:30px;
+  margin-bottom:15px;
+}
+@font-face {
+    font-family: websans;
+    src: url(source-sans-pro.bold.ttf);
+}
+@font-face {
+    font-family: websans1;
+    src: url(source-sans-pro.regular.ttf);
+}
+button#join {
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    background-color: transparent;
+    border-style:solid;
+    border-width: 2px;
+    border-color: white;
+    height:40px;
+    width:125px;
+    font-family:websans1;
+    position:fixed;
+    top:0;
+    right:0;
+    margin-right:100px;
+    margin-top:15px;
+}
+button#power {
+    background-color: transparent;
+    color:red;
+    font-family:websans;
+    background-color: transparent;
+    border-style:none;
+    position:fixed;
+    top:0;
+    right:0;
+    margin-right:30px;
+    margin-top:15px;
+}
+img {
+  font-family:websans1;
+}
+.invite {
+  border:1px;
+  font-family:websans;
+}
+.cell {
+  text-align:center;
+  font-size:10px;
+  font-family:websans1;
+  margin-left:-12px;
+}
+table {
+    border-spacing:30px;
+    border-collapse: separate;
+    font-family:websans;
+}
+u {
+  color:white;
+  font-family:websans1;
+}
+.table1 {
+  bottom:0;
+  left:0;
+  margin-left:30px;
+  margin-bottom:-10px;
+  position:fixed;
+}
+.sub2 {
+  padding-left:85px;
+  padding-top:65px;
+  font-family:websans1;
+}
+.import1 {
+  margin-left:112px;
+  background-color:white;
+  color:black;
+  border-color:white;
+  font-family:websans1;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  border-style:solid;
+  height:25px;
+  width:75px;
+  font-size:10px;
+}
+.title1 {
+  padding-left:22px;
+  font-family:websans;
+}
+.title2 {
+  margin-left:-27px;
+  font-family:websans;
+  top:30px;
+}
+.sub1 {
+  padding-left:95px;
+  font-family:websans1;
+}
+.start1 {
+  background-color: white;
+  color:black;
+  border-color:white;
+  margin-left:-40px;
+  margin-bottom:75px;
+  font-family:websans;
+  width:200px;
+  height:50px;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  border-style:solid;
+}
+.pic1 {
+  position:absolute;
+  top:350px;
+  left:100px;
+  font-family:websans;
+}
+.flex-container {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-flow: row wrap;
+    flex-flow: row wrap;
+    text-align: left;
+    font-family:websans;
+}
+.flex-container > * {
+    padding: 0px;
+    -webkit-flex: 1 100%;
+    flex: 1 100%;
+    font-family:websans;
+}
+.article {
+    text-align: left;
+    font-family:websans;
+    padding-top:30px;
+}
+.textcolor {
+  background-color:white;
+  color:black;
+  border-color:white;
+  font-family:websans;
+}
+form input[type=text] {
+  width: 300px;
+  margin-bottom: 7px;
+  font-size: 20px;
+  border: 1px solid white;
+  border-width: 2px;
+  border-color: white;
+  padding: 5px 7px;
+  background-color:transparent;
+  color:white;
+  border-radius: 1px;
+  font-family:websans;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  }
+input[placeholder], [placeholder], *[placeholder] {
+    color: white !important;
+    font-size: 20px;
+    font-family:websans;
+}
+::-webkit-input-placeholder {
+ font-size: 10px;
+ color: white;
+ text-align: center;
+ font-family:websans;
+}
+:-moz-placeholder { /* older Firefox*/
+ font-size:10px;
+ color: white;
+ text-align: center;
+ font-family:websans;
+}
+::-moz-placeholder { /* Firefox 19+ */
+ font-size: 10px;
+ color: white;
+ text-align: center;
+ font-family:websans;
+}
+:-ms-input-placeholder {
+ font-size: 10px;
+ color: white;
+ text-align: center;
+ font-family:websans;
+}
+body{background: linear-gradient(to top, #F3796C, #FFAD75);color:white;}
+.nav {background: linear-gradient(to top, #F3796C, #FFAD75);color:white}
+.nav ul {
+    list-style-type: none;
+    padding: 0;
+    font-family:websans;
+}
+.nav ul a {
+    text-decoration: none;
+    font-family:websans;
+}
+.resize {
+    width: auto;
+    height: auto;
+    font-family:websans;
+    position:fixed;
+    top:0;
+    left:0;
+    margin-left:30px;
+    margin-top:15px;
+}
+@media all and (min-width: 768px) {
+    .nav {text-align:left;-webkit-flex: 1 auto;flex:1 auto;-webkit-order:1;order:1;}
+    .article {-webkit-flex:5 0px;flex:5 0px;-webkit-order:2;order:2;}
+    footer {-webkit-order:3;order:3;}
+}
+#wrap {
+   width:900px;
+   margin:0 auto;
+   font-family:websans;
+}
+#left_col {
+   float:left;
+   width:300px;
+   margin-right:150px;
+   padding-top:25px;
+   font-family:websans;
+}
+#right_col {
+   float:right;
+   width:300px;
+   margin-left:150px;
+   padding-top:25px;
+   font-family:websans;
+}
+
+</style>
+
+
+
+<!-- BODY CODE -->
+<img class="resize" src="images/logo.png" alt="error">
+<div id="wrap">
+  <div id="left_col">
+      <body>
+        <div class="flex-container">
+
+          <article class="article">
+            <h1 class="title1">Import Profile(s)</h1>
+            <form action="css.html">
+              <p class="sub1"> Google Docs Link: </p>
+              <input type="text" name="docs"><br>
+              </p></p>
+              <input class="import1" id="uploaded-csv-google" type="submit" style="pointer-events:none" value=" Coming Soon  ">
+            </form>
+            <p class="sub2">Upload Xcel, CSV, etc.</p>
+          </article>
+        </div>
+      </body>
+
+  <!-- DRAG AND DROP -->
+  <style type="text/css">
+    .demo-droppable {
+    height:50px;
+    background:transparent;
+    color: white;
+    padding: 100px;
+    text-align: center;
+    border: 1px dashed white;
+    border-width: 3px;
+    width: 300px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    }
+
+    .demo-droppable.dragover {
+    background: #FB9972;
+    }
+  </style>
+  <div class="demo-droppable">
+  <p style="font-family:websans1">Upload</p>
+  </div>
+  <div class="output"></div>
+<script type="text/javascript">
+  (function(window) {
+    function triggerCallback(e, callback) {
+      if(!callback || typeof callback !== 'function') {
+        return;
+      }
+      var files;
+      if(e.dataTransfer) {
+        files = e.dataTransfer.files;
+      } else if(e.target) {
+        files = e.target.files;
+      }
+      callback.call(null, files);
+    }
+    function makeDroppable(ele, callback) {
+      var input = document.createElement('input');
+      input.setAttribute('type', 'file');
+      input.setAttribute('multiple', true);
+      input.setAttribute('id', 'uploaded-csv');
+      input.style.display = 'none';
+      input.addEventListener('change', function(e) {
+        triggerCallback(e, callback);
+      });
+      ele.appendChild(input);
+
+      ele.addEventListener('dragover', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        ele.classList.add('dragover');
+      });
+
+      ele.addEventListener('dragleave', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        ele.classList.remove('dragover');
+      });
+
+      ele.addEventListener('drop', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        ele.classList.remove('dragover');
+        triggerCallback(e, callback);
+      });
+
+      ele.addEventListener('click', function() {
+        input.value = null;
+        input.click();
+      });
+    }
+    window.makeDroppable = makeDroppable;
+  })(this);
+  (function(window) {
+    makeDroppable(window.document.querySelector('.demo-droppable'), function(files) {
+      console.log(files);
+      var output = document.querySelector('.output');
+      output.innerHTML = '';
+      for(var i=0; i<files.length; i++) {
+        if(files[i].type.indexOf('image/') === 0) {
+          output.innerHTML += '<img width="200" src="' + URL.createObjectURL(files[i]) + '" />';
+        }
+        output.innerHTML += '<p>'+"File Uploaded: "+files[i].name+'</p>';
+      }
+    });
+  })(this);
+</script>
+<form action="css.html">
+  </p></p>
+  <!-- <input class="import1" type="submit" value="  Import  "> -->
+</form>
+<div class="table1">
+<table>
+ <tr>
+  <td>
+    <p style="font-family:websans1">Templates</p>
+  </td>
+   <td>
+     <img src="images/drive.png">
+   </td>
+   <td>
+     <a href="https://dl.dropbox.com/s/mmiz6g0unpn2u8x/example.xlsx"><img src="images/excel.png"></a>
+   </td>
+   <td>
+      <p id="version" id="ready" style="margin-left:-7px;width:190px"></p>
+   </td>
+   <td>
+      <button class="import1" id="btn-update"  style="margin-left:-7px;width:190px">Check for Updates</button>
+  </td>
+
+ </tr>
+</table>
+</div>
+</div>
+</div>
+
+<div id="wrap">
+    <form action="#" id="deactivate-form">
+      <button class="button" id="power"><img src="images/power.png"></button>
+    </form>
+    <form action="share.html">
+      <button class="button" id="join">Invite a Friend <i class="fa fa-paper-plane"></i></button>
+    </form>
+  <div id="right_col">
+    <h1 class="title2">Select Bot</h1>
+    <table border="0" cellspacing="10" style="margin-left:-125px">
+         <tr>
+            <td>
+              <form action="javascript:selectBot('Splashforce', splashforce);">
+                <input type="image" src="images/splashforce.png" onmouseover="this.src='images/checkmark.png';" onmouseout="this.src='images/splashforce.png';" alt="Submit" width="48" height="48">
+                <p class="cell">Splashforce</p>
+              </form>
+            </td>
+            <td>
+              <form action="javascript:selectBot('Dashe', 'dashe');">
+                <input type="image" src="images/dashe.png" onmouseover="this.src='images/checkmark.png';" onmouseout="this.src='images/dashe.png';" alt="Submit" width="48" height="48">
+                <p class="cell">Dashe</p>
+              </form>
+            </td>
+            <td>
+              <form action="javascript:selectBot('ANB AIO', 'anbaio');">
+                <input type="image" src="images/anb.png" onmouseover="this.src='images/checkmark.png';" onmouseout="this.src='images/anb.png';" alt="Submit" width="48" height="48">
+                <p class="cell">ANB AIO</p>
+              </form>
+            </td>
+            <td>
+              <form action="javascript:selectBot('ANB AIO PlUS', 'anbaioplus');">
+                <input type="image" src="images/anbplus.png" onmouseover="this.src='images/checkmark.png';" onmouseout="this.src='images/anbplus.png';" alt="Submit" width="48" height="48">
+                <p class="cell">ANB AIO Plus</p>
+              </form>
+            </td>
+         </tr>
+         <tr>
+            <td>
+              <form action="javascript:selectBot('Cybersole', 'cybersole');">
+                <input type="image" src="images/cyber.png" onmouseover="this.src='images/checkmark.png';" onmouseout="this.src='images/cyber.png';" alt="Submit" width="48" height="48">
+                <p class="cell">Cybersole</p>
+              </form>
+            </td>
+            <td>
+              <form action="javascript:selectBot('Taskbot', 'taskbot');">
+                <input type="image" src="images/taskbot.png" onmouseover="this.src='images/checkmark.png';" onmouseout="this.src='images/taskbot.png';" alt="Submit" width="48" height="48">
+                <p class="cell">Taskbot</p>
+              </form>
+            </td>
+            <td>
+              <form action="javascript:selectBot('SNKRS Bot', 'snkrsbot');">
+                <input type="image" src="images/snkrs.png" onmouseover="this.src='images/checkmark.png';" onmouseout="this.src='images/snkrs.png';" alt="Submit" width="48" height="48">
+                <p class="cell">SNKRSBot</p>
+              </form>
+            </td>
+            <td>
+              <form action="javascript:selectBot('DNA', 'dna');">
+                <input type="image" src="images/dna.png" onmouseover="this.src='images/checkmark.png';" onmouseout="this.src='images/dna.png';" alt="Submit" width="48" height="48">
+                <p class="cell">DNA</p>
+              </form>
+            </td>
+         </tr>
+         <tr>
+            <td>
+              <form action="javascript:selectBot('Ghost', 'ghost');">
+                <input type="image" src="images/ghost.png" onmouseover="this.src='images/checkmark.png';" onmouseout="this.src='images/ghost.png';" alt="Submit" width="48" height="48">
+                <p class="cell">Ghost</p>
+              </form>
+            </td>
+            <td>
+              <form action="javascript:selectBot('KickMoji', 'kickmoji');">
+                <input type="image" src="images/kickmoji.png" onmouseover="this.src='images/checkmark.png';" onmouseout="this.src='images/kickmoji.png';" alt="Submit" width="48" height="48">
+                <p class="cell">Kickmoji</p>
+              </form>
+            </td>
+            <td>
+              <form action="javascript:selectBot('WopBot', 'wopbot');">
+                <input type="image" src="images/wopbot.png" onmouseover="this.src='images/checkmark.png';" onmouseout="this.src='images/wopbot.png';" alt="Submit" width="48" height="48">
+                <p class="cell">Wopbot</p>
+              </form>
+            </td>
+            <td>
+              <form action="javascript:selectBot('YCOPP', 'ycopp');">
+                <input type="image" src="images/ycopp.png" onmouseover="this.src='images/checkmark.png';" onmouseout="this.src='images/ycopp.png';" alt="Submit" width="48" height="48">
+                <p class="cell">YCOPP</p>
+              </form>
+            </td>
+         </tr>
+         <tr>
+            <td>
+              <form action="javascript:selectBot('BNB', 'bnb');">
+                <input type="image" src="images/bnb.png" onmouseover="this.src='images/checkmark.png';" onmouseout="this.src='images/bnb.png';" alt="Submit" width="48" height="48">
+                <p class="cell">BNB</p>
+              </form>
+            </td>
+            <td>
+              <form action="javascript:selectBot('Onestop Adidas', 'onestopadidas');">
+                <input type="image" src="images/adidas.png" onmouseover="this.src='images/checkmark.png';" onmouseout="this.src='images/adidas.png';" alt="Submit" width="48" height="48">
+                <p class="cell">Onestop Adidas</p>
+              </form>
+            </td>
+            <td>
+              <form action="javascript:selectBot('Onestop Shopify', 'onestopshopify');">
+                <input type="image" src="images/shopify.png" onmouseover="this.src='images/checkmark.png';" onmouseout="this.src='images/shopify.png';" alt="Submit" width="48" height="48">
+                <p class="cell">Onestop Shopify</p>
+              </form>
+            </td>
+            <td>
+              <form action="javascript:selectBot('Onestop Supreme', 'onestopsupreme');">
+                <input type="image" src="images/supreme.png" onmouseover="this.src='images/checkmark.png';" onmouseout="this.src='images/supreme.png';" alt="Submit" width="48" height="48">
+                <p class="cell">Onestop Supreme</p>
+              </form>
+            </td>
+         </tr>
+         <tr>
+            <td>
+              <form action="javascript:selectBot('Supreme Slayer', 'supremeslayer');">
+                <input type="image" src="images/slayer.png" onmouseover="this.src='images/checkmark.png';" onmouseout="this.src='images/slayer.png';" alt="Submit" width="48" height="48">
+                <p class="cell">Supreme Slayer</p>
+              </form>
+            </td>
+            <td>
+              <form action="javascript:selectBot('Soleslayer', 'soleslayer');">
+                <input type="image" src="images/soleslayer.png" onmouseover="this.src='images/checkmark.png';" onmouseout="this.src='images/soleslayer.png';" alt="Submit" width="48" height="48">
+                <p class="cell">Soleslayer</p>
+              </form>
+            </td>
+            <td>
+              <form action="javascript:selectBot('Gen5', 'gen5');">
+                <input type="image" src="images/gen5.png" onmouseover="this.src='images/checkmark.png';" onmouseout="this.src='images/gen5.png';" alt="Submit" width="48" height="48">
+                <p class="cell">Gen5</p>
+              </form>
+            </td>
+            <td>
+              <form action="javascript:selectBot('Trip.io', 'tripio');">
+                <input type="image" src="images/tripio.png" onmouseover="this.src='images/checkmark.png';" onmouseout="this.src='images/tripio.png';" alt="Submit" width="48" height="48">
+                <p class="cell">Trip.io</p>
+              </form>
+            </td>
+         </tr>
+      </table>
+    <form action="javascript:convert()">
+
+      <input class="start1" id="start-btn" style="pointer-events:none" type="submit" value="  Select Bot  ">
+
+    </form>
+
+  </div>
+  <div class="foot">
+    <img style="display:inline; padding-left:30px" src="images/pblock.png">
+    <a style="display:inline; padding-left:5px" href="https://proxypass.io"><u style="display:inline">Buy Proxies</u></a>
+    <img style="display:inline; padding-left:30px" src="images/questionmark.png">
+    <p style="display:inline; padding-left:5px; font-family:websans1">Need Help?</p><a style="display:inline; padding-left:10px" href="https://profilepass.io"><u>Contact Support</u></a>
+    <a href="https://twitter.com/profilepass"><img style="display:inline; padding-left:50px" src="images/twitter.png">
+  </div>
+  </div>
+
+<body>
+
+
+
+<div id="data"></div>
+<script>
+var oFileIn;
+
+$(function() {
+    oFileIn = document.getElementById('uploaded-csv');
+    if(oFileIn.addEventListener) {
+        oFileIn.addEventListener('change', filePicked, false);
+        console.log('added event listener')
+    }
+});
+var arrayOfData = [];
+var botIdentifier = "";
+function filePicked(oEvent) {
+// Get The File From The Input
+var oFile = oEvent.target.files[0];
+var sFilename = oFile.name;
+// Create A File Reader HTML5
+var reader = new FileReader();
+console.log('fuleupliads')
+
+// Ready The Event For When A File Gets Selected
+reader.onload = function(e) {
+    var data = e.target.result;
+    var cfb = XLSX.read(data, {type: 'binary'});
+
+
+    cfb.SheetNames.forEach(function(sheetName) {
+
+      if (sheetName == "Payments") {
+
+        // Obtain The Current Row As CSV
+        // var sCSV = XLSX.utils.make_csv(cfb.Sheets[sheetName]);
+        var oJS = XLSX.utils.sheet_to_json(cfb.Sheets[sheetName]);
+
+
+        for (var i = 0; i < oJS.length; i++) {
+          // console.log(oJS[i])
+          arrayOfData.push(oJS[i]);
+        }
+      }
+        // $scope.oJS = oJS
+    });
+
+
+};
+
+// Tell JS To Start Reading The File.. You could delay this if desired
+reader.readAsBinaryString(oFile);
+
+}
+
+
+function selectBot(bot, symbol){
+
+  document.getElementById('start-btn').value="Import to " + bot;
+  document.getElementById('start-btn').style.pointerEvents="all";
+  botIdentifier = symbol;
+  console.log(bot);
+}
+function convert() {
+  document.getElementById('start-btn').style.pointerEvents = "none";
+  document.getElementById('start-btn').value="Importing...";
+  //var botT = dicument.getElementById('type-of-bot').value
+  jsonFile = {}
+  botT = botIdentifier;
+
+  //DASHE DASHE DASHE
+  if (botT == "dashe") {
+    console.log(arrayOfData);
+    profiles = []
+    for (var i = 0; i < arrayOfData.length; i++) {
+      row = arrayOfData[i]
+
+      card_expiration = row["Expire Month"] + "/" + row["Expire Year"]
+      card_name = row["Billing First Name"] + " " + row["Billing Last Name"]
+      new_entry = {"address": row["Billing Address 1"], "apt": row["Billing Address 2"], "cardCvv": row["CVV"], "cardExpiry": card_expiration, "cardName": card_name, "cardNumber": row["Card Number"],
+      "city": row["Billing City"], "country": row["Billing Country"], "email": row["Email"], "firstName": row["Billing First Name"], "lastName": row["Billing Last Name"],
+      "oneUseOnly": false, "phone": row["Billing Phone"], "state": row["Billing State"], "zipCode": row["Billing Zip"]}
+      jsonFile[row["Email"]] = new_entry
+      profiles.push(row["Email"]);
+
+    }
+    // fromDir(appDir, ".json", )
+    content = JSON.stringify(jsonFile)
+    const fs = require('fs')
+    var app_data_path = process.env.APPDATA || (process.platform == 'darwin' ? process.env.HOME + 'Library/Preferences' : '/var/local')
+    var path = app_data_path + "/shopify-dashe/billing.json";
+    console.log(path)
+    fs.writeFileSync(path, content, {encoding: 'utf8', flag:'w'})
+
+    var app_data_path = process.env.APPDATA || (process.platform == 'darwin' ? process.env.HOME + 'Library/Preferences' : '/var/local')
+    var path = app_data_path + "/shopify-dashe/settings.json";
+
+    var data = fs.readFileSync(path);
+    console.log(JSON.parse(data));
+    settingsJSON = JSON.parse(data);
+    settingsJSON["billingProfiles"] = profiles;
+    content = JSON.stringify(settingsJSON)
+    fs.writeFileSync(path, content, {encoding: 'utf8', flag:'w'});
+    console.log(settingsJSON);
+    alert("Successfully imported profiles");
+
+
+    document.getElementById('start-btn').style.pointerEvents = "all";
+    document.getElementById('start-btn').value="Import";
+    return;
+
+
+    // scan = "dashe";
+    // match = "billing.json";
+    // var walk    = require('walk');
+    // var files   = [];
+
+    // var app_data_path = process.env.APPDATA || (process.platform == 'darwin' ? process.env.HOME + '/Library/' : '/var/local')
+    // // Walker options
+    // var walker  = walk.walk(app_data_path, { followLinks: false });
+    //
+    // walker.on('file', function(root, stat, next) {
+    //     // Add this file to the list of files
+    //     if (root.indexOf(scan) >= 0) {
+    //     if (stat.name == match) {
+    //     console.log(root + '/' + stat.name);
+    //     files.push(root + '/' + stat.name);
+    //   }
+    //   }
+    //     next();
+    // });
+    //
+    // walker.on('end', function() {
+    //     console.log(files);
+    //
+    //     if (files.length < 1) {
+    //       alert("Install the bot, couldnt find file");
+    //     } else {
+    //     file = files[0]
+    //     content = JSON.stringify(jsonFile)
+    //     const fs = require('fs')
+    //
+    //     console.log("Writing to: " + file)
+    //
+    //     fs.writeFileSync(file, content, {encoding: 'utf8', flag:'w'})
+    //   }
+    // });
+
+  }
+    //
+    // var app_data_path = process.env.APPDATA || (process.platform == 'darwin' ? process.env.HOME + '/Library/' : '/var/local')
+    // var appDir = app_data_path;//path.dirname(require.main.filename);
+    // if (appDir.indexOf('Roaming') !== -1) {
+    //   appDir = appDir.replace('Roaming', '');
+    //   appDir = appDir.slice(0,-1);
+    // }
+    //
+    // console.log(appDir);
+    //
+    // var fileLocation = fromDir(appDir, "dashe", "billing")
+    //
+    // if (fileLocation == "404") {
+    //
+    //   alert("Could not locate bot data file.");
+    // } else {
+    //   content = JSON.stringify(jsonFile)
+    //   const fs = require('fs')
+    //
+    //   console.log("Writing to: " + fileLocation)
+    //
+    //   fs.writeFileSync(fileLocation, content, {encoding: 'utf8', flag:'w'})
+    // }
+
+//GHOST GHOST GHOST
+  if (botT == "ghost") {
+    console.log(arrayOfData);
+    for (var i = 0; i < arrayOfData.length; i++) {
+      row = arrayOfData[i]
+
+      card_expiration = row["Expire Month"] + "/" + row["Expire Year"]
+
+      new_entry = {"address": row["Billing Address 1"], "apt": row["Billing Address 2"], "cvv": row["CVV"], "cardMonth": row["Expire Month"], "cardYear": row["Expire Year"], "cardNumber": row["Card Number"],
+      "city": row["Billing City"], "country": row["Billing Country"], "email": row["Email"], "firstName": row["Billing First Name"], "lastName": row["Billing Last Name"],
+      "status": "Idle", "phone": row["Billing Phone"], "state": row["Billing State"], "zipCode": row["Billing Zip"], "name": row["Email"]}
+      jsonFile[row["Email"]] = new_entry
+
+
+    }
+    content = JSON.stringify(jsonFile)
+    const fs = require('fs')
+    var app_data_path = process.env.APPDATA || (process.platform == 'darwin' ? process.env.HOME + 'Library/Preferences' : '/var/local')
+    var path = app_data_path + "/ghost-snkrs/profiles.json";
+    console.log(path)
+    fs.writeFileSync(path, content, {encoding: 'utf8', flag:'w'})
+    alert('Successfully imported profiles');
+    document.getElementById('start-btn').style.pointerEvents = "all";
+    document.getElementById('start-btn').value="Import";
+    return;
+    // scan = "ghost";
+    // match = "profiles.json";
+    // var walk    = require('walk');
+    // var files   = [];
+    //
+    // var app_data_path = process.env.APPDATA || (process.platform == 'darwin' ? process.env.HOME + '/Library/' : '/var/local')
+    // // Walker options
+    // var walker  = walk.walk(app_data_path, { followLinks: false });
+    //
+    // walker.on('file', function(root, stat, next) {
+    //     // Add this file to the list of files
+    //     if (root.indexOf(scan) >= 0) {
+    //     if (stat.name == match) {
+    //
+    //     files.push(root + '/' + stat.name);
+    //
+    //     file = root + '/' + stat.name;
+    //     content = JSON.stringify(jsonFile)
+    //     const fs = require('fs')
+    //
+    //     console.log("Writing to: " + file)
+    //
+    //     fs.writeFileSync(file, content, {encoding: 'utf8', flag:'w'})
+    //     alert("Successfully imported profiles.")
+    //     return
+    //
+    //   }
+    //   }
+    //     next();
+    // });
+    //
+    // walker.on('end', function() {
+    //     console.log(files);
+    //
+    //     if (files.length < 1) {
+    //       alert("Install the bot, couldnt find file");
+    //     } else {
+    //     file = files[0]
+    //     content = JSON.stringify(jsonFile)
+    //     const fs = require('fs')
+    //
+    //     console.log("Writing to: " + file)
+    //
+    //     fs.writeFileSync(file, content, {encoding: 'utf8', flag:'w'})
+    //   }
+    // });
+
+
+
+
+    // content = JSON.stringify(jsonFile)
+    // const fs = require('fs')
+    // var app_data_path = process.env.APPDATA || (process.platform == 'darwin' ? process.env.HOME + 'Library/Preferences' : '/var/local')
+    // var path = app_data_path + "/ghost-snkrs/profiles.json";
+    // console.log(path)
+    // fs.writeFileSync(path, content, {encoding: 'utf8', flag:'w'})
+  }
+
+//KICKMOJI KICKMOJI KICKMOJI
+  if (botT == "kickmoji") {
+    console.log(arrayOfData);
+
+    array=[]
+    for (var i = 0; i < arrayOfData.length; i++) {
+          row = arrayOfData[i]
+
+          //card_expiration = row["Expire Month"] + "/" + row["Expire Year"]
+          new_entry = {"ProfileName":row["Email"], "FirstName":row["Billing First Name"], "LastName":row["Billing Last Name"], "PhoneNumber":row["Billing Phone"], "Town":row["Billing City"],
+          "County":row["Billing State"], "Country":row["Billing Country"], "ZipCode":row["Billing Zip"], "AddressOne":row["Billing Address 1"], "AddressTwo":row["Billing Address 2"],
+          "AddressThree":"", "Email":row["Email"], "CreditCardNumber":row["Card Number"], "Ccv":row["CVV"], "CcType":row["Card Type"], "ExpirationMonth":row["Expire Month"], "ExpirationYear":row["Expire Year"]}
+          //write to path and name email profile.json
+
+          content = JSON.stringify(new_entry)
+          const fs = require('fs')
+          var app_data_path = process.env.APPDATA || (process.platform == 'darwin' ? process.env.HOME + '/Library/Preferences' : '/var/local')
+          var path = app_data_path + "/Kickmoji_Nike/profiles/" + new_entry["ProfileName"] + ".json";
+          fs.writeFileSync(path, content, {encoding: 'utf8', flag:'w'})
+
+
+    }
+    alert('Successfully imported profiles');
+    document.getElementById('start-btn').style.pointerEvents = "all";
+    document.getElementById('start-btn').value="Import";
+    return;
+
+
+
+
+  }
+
+//SUPREMESLAYER SUPREMESLAYER SUPREMESLAYER
+  if (botT == "supremeslayer") {
+    console.log(arrayOfData);
+
+    array=[]
+    for (var i = 0; i < arrayOfData.length; i++) {
+          row = arrayOfData[i]
+          country_code = ""
+          if (row["Billing Country"] == "United States") {
+            country_code = "USA";
+
+          } else if (row["Billing Country"] == "United Kingdom") {
+
+            country_code = "UK";
+          } else {
+            country_code = row["Billing Country"];
+          }
+          card_month = parseInt(row["Expire Month"]);
+
+          card_year = parseInt(row["Expire Year"]);
+
+          lowercaseCard = row["Card Type"].toLowerCase();
+          if (lowercaseCard == "American Express") {
+
+            lowercaseCard = "americanexpress";
+          }
+
+          name = row["Billing First Name"] + row["Billing Last Name"]
+          new_entry = {"index": row["Email"], "name": name, "locale": "us", "email": row["Email"], "billing": {"first": row["Billing First Name"], "last": row["Billing Last Name"], "address1":row["Billing Address 1"], "address2":row["Billing Address 2"],
+          "postcode":row["Billing Zip"], "city":row["Billing City"], "region":row["Billing State"], "country":country_code, "phone":row["Billing Phone"]}, "card": {"type":lowercaseCard, "number":row["Card Number"], "month":card_month,
+          "year":card_year, "code":row["CVV"]}}
+          array.push(JSON.stringify(new_entry))
+
+    }
+    content = "[" + array.toString() + "]";
+    const fs = require('fs')
+    var app_data_path = (process.env.APPDATA).replace("Roaming", "Local")
+    var path = app_data_path + "/SupremeSlayer/checkoutprofiles.json";
+    console.log(path)
+    fs.writeFileSync(path, content, {encoding: 'utf8', flag:'w'})
+    alert('Successfully imported profiles');
+    document.getElementById('start-btn').style.pointerEvents = "all";
+    document.getElementById('start-btn').value="Import";
+    return;
+  }
+
+  //SOLESLAYER SOLESLAYER SOLESLAYER
+    if (botT == "soleslayer") {
+      console.log(arrayOfData);
+
+      array=[]
+      for (var i = 0; i < arrayOfData.length; i++) {
+            row = arrayOfData[i]
+            country_code = ""
+            if (row["Billing Country"] == "United States") {
+              country_code = "US";
+
+            } else if (row["Billing Country"] == "United Kingdom") {
+
+              country_code = "UK";
+            } else {
+              country_code = row["Billing Country"];
+            }
+
+            card_month  = parseInt(row["Expire Month"]);
+            card_year = parseInt(row["Expire Year"]) - 2000;
+            card_type = row["Card Type"].toLowerCase();
+            name = row["Billing First Name"] + row["Billing Last Name"]
+            new_entry = {"index": row["Email"], "name": name, "email":row["Email"], "billing": {"first": row["Billing First Name"], "last": row["Billing Last Name"], "address1":row["Billing Address 1"], "address2":row["Billing Address 2"], "postcode":row["Billing Zip"],
+            "city":row["Billing City"], "state":row["Billing State"], "country":country_code, "phone":row["Billing Phone"]}, "card": {"type":card_type, "number":row["Card Number"], "month":card_month,
+            "year":card_year, "code":row["CVV"]}, "shipping": {"first": row["Billing First Name"], "last": row["Billing Last Name"], "address1":row["Billing Address 1"], "address2":row["Billing Address 2"], "postcode":row["Billing Zip"],
+            "city":row["Billing City"], "state":row["Billing State"], "country":country_code, "phone":row["Billing Phone"]}}
+            array.push(JSON.stringify(new_entry))
+
+      }
+      content = "[" + array.toString() + "]";
+      const fs = require('fs')
+      var app_data_path = (process.env.APPDATA).replace("Roaming", "Local")
+      var path = app_data_path + "/SoleSlayer/checkoutprofiles.json";
+      console.log(path)
+      fs.writeFileSync(path, content, {encoding: 'utf8', flag:'w'})
+      alert('Successfully imported profiles');
+      document.getElementById('start-btn').style.pointerEvents = "all";
+      document.getElementById('start-btn').value="Import";
+      return;
+    }
+
+//SNKRSBOT SNKRSBOT SNKRSBOT
+  if (botT == "snkrsbot") {
+
+    jsonFile = {}
+
+    for (var i = 0; i < arrayOfData.length; i++) {
+          row = arrayOfData[i]
+
+
+
+
+          new_entry = {"ship": {"province":"", "code":row["Billing Country"], "addy2":row["Billing Address 2"], "addy1":row["Billing Address 1"], "phone":row["Billing Phone"], "city":row["Billing City"], "zip":row["Billing Zip"],
+         "lname":row["Billing Last Name"], "pcode":"", "fname":row["Billing First Name"]}, "bill": {"province":"", "code":row["Billing Country"], "addy2":row["Billing Address 2"], "addy1":row["Billing Address 1"], "phone":row["Billing Phone"],
+         "city":row["Billing City"], "zip":row["Billing Zip"], "country":row["Billing Country"], "state":row["Billing State"], "lname":row["Billing Last Name"], "pcode":"", "fname":row["Billing First Name"], "email":row["Email"]},
+         "ccdata": {"cvv":row["CVV"], "number":row["Card Number"], "month":row["Expire Month"], "smartC": {"used":"false", "enabled": false}, "year":row["Expire Year"], "type":row["Card Type"]}}
+         jsonFile[row["Email"]] = new_entry
+
+
+
+    }
+
+
+    scan = "thesnkrsbot";
+    match = "pprofile.dat";
+    var walk    = require('walk');
+    var files   = [];
+
+    // var app_data_path = process.env.APPDATA || (process.platform == 'darwin' ? process.env.HOME + '/Library/' : '/var/local')
+    // Walker options
+    app_data_path = "C:/"
+    var walker  = walk.walk(app_data_path, { followLinks: false });
+
+    walker.on('file', function(root, stat, next) {
+        // Add this file to the list of files
+        if (root.indexOf(scan) >= 0) {
+        if (stat.name == match) {
+
+        files.push(root + '/' + stat.name);
+        file = root + '/' + stat.name;
+        content = JSON.stringify(jsonFile);
+        const fs = require('fs')
+
+        console.log("Writing to: " + file)
+
+        fs.writeFileSync(file, content, {encoding: 'utf8', flag:'w'})
+        alert("Successfully imported profiles.");
+        document.getElementById('start-btn').style.pointerEvents = "all";
+        document.getElementById('start-btn').value="Import";
+        return
+
+
+      }
+      }
+        next();
+    });
+
+    walker.on('end', function() {
+        console.log(files);
+
+        if (files.length < 1) {
+          alert("Install the bot, couldnt find file");
+        } else {
+        file = files[0]
+        content = JSON.stringify(jsonFile);
+        const fs = require('fs')
+
+        console.log("Writing to: " + file)
+
+        fs.writeFileSync(file, content, {encoding: 'utf8', flag:'w'})
+      }
+    });
+
+    return;
+  }
+
+
+
+//BNB BNB BNB
+  if (botT == "bnb") {
+    console.log(arrayOfData);
+    array = []
+    for (var i = 0; i < arrayOfData.length; i++) {
+        row = arrayOfData[i]
+
+          //card_expiration = row["Expire Month"] + "/" + row["Expire Year"]
+          new_entry={"Name":row["Email"], "BillingFirstName":row["Billing First Name"], "BillingLastName":row["Billing Last Name"], "BillingAddress1":row["Billing Address 1"], "BillingAddress2":row["Billing Address 2"],
+          "BillingZipCode":row["Billing Zip"], "BillingPhone":row["Billing Phone"], "BillingCity":row["Billing City"], "BillingState":row["Billing State"], "BillingProvince":"", "BillingCountry":row["Billing Country"],
+          "BillingEURegion":"", "BillingDSMRegion":"", "ShippingFirstName":row["Billing First Name"], "ShippingLastName":row["Billing Last Name"], "ShippingAddress1":row["Billing Address 1"], "ShippingAddress2":row["Billing Address 2"],
+          "ShippingZipCode":row["Billing Zip"], "ShippingPhone":row["Billing Phone"], "ShippingCity":row["Billing City"], "ShippingState":row["Billing State"], "ShippingProvince":"", "ShippingCountry":row["Billing Country"],
+          "ShippingEURegion":"", "ShippingDSMRegion":"", "CreditCardType":row["Card Type"], "CreditCardNumber":row["Card Number"], "CreditCardExpiryMonth":row["Expire Month"], "CreditCardExpiryYear":row["Expire Year"],
+          "CreditCardCvv":row["CVV"], "MaxCheckouts":0}
+
+          array.push(JSON.stringify(new_entry));
+
+    }
+
+    const xml2js = require('xml2js');
+
+    var parser = new xml2js.Parser();
+
+    var app_data_path = (process.env.APPDATA).replace("Roaming", "Local")
+    var path = app_data_path + "/BNB_All_in_One/BNB_All_in_One.exe_Url_gqf1hw2kgclm2f14tpmy1d2ayze5pjmj/1.0.0.0/user.config";
+    const fs = require('fs')
+    jsonData = {}
+    fs.readFile(path, function(err, data) {
+      parser.parseString(data, function (err, result) {
+        jsonData = JSON.stringify(result);
+        jsonData= JSON.parse(jsonData);
+
+        for (var i = 0; i < jsonData["configuration"]["userSettings"][0]["BNB_All_in_One.Properties.Settings"][0]["setting"].length; i++) {
+          console.log(jsonData["configuration"]["userSettings"][0]["BNB_All_in_One.Properties.Settings"][0]["setting"][i]["$"]["name"]);
+          if (jsonData["configuration"]["userSettings"][0]["BNB_All_in_One.Properties.Settings"][0]["setting"][i]["$"]["name"] == "CreditCardProfiles") {
+            console.log("I LOVE COCK");
+            jsonData["configuration"]["userSettings"][0]["BNB_All_in_One.Properties.Settings"][0]["setting"][i]["value"] = "[" +  array.toString() + "]";
+            console.log(jsonData);
+            var builder = new xml2js.Builder();
+            var xml = builder.buildObject(jsonData);
+
+            console.log(path);
+            console.log(xml);
+
+
+            fs.writeFileSync(path, xml, {encoding: 'utf8', flag:'w'})
+            alert('Successfully imported profiles');
+            document.getElementById('start-btn').style.pointerEvents = "all";
+            document.getElementById('start-btn').value="Import";
+            return;
+          }
+
+        }
+
+
+
+      })
+    })
+}
+
+alert('This bot is coming soon!');
+document.getElementById('start-btn').style.pointerEvents = "all";
+document.getElementById('start-btn').value="Import";
+
+}
+</script>
+<script>
+const electron = require('electron');
+const ipcRenderer = electron.ipcRenderer;
+
+const form = document.getElementById('deactivate-form');
+
+form.addEventListener('submit', submitForm);
+
+
+function submitForm(e) {
+
+  e.preventDefault();
+  email="deactivate";
+  ipcRenderer.send('deactivate:new', email);
+  // ipcRenderer.send('password:add', password);
+
+}
+
+ipcRenderer.on("deactivate:new", function(e, message) {
+
+  alert(message);
+});
+</script>
+<script src="updatestuff.js"></script>
+</html>
